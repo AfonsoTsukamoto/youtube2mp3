@@ -16,7 +16,7 @@ module MediaConverter
       end
 
       def file_path(name)
-        root_path << name
+        @file_path ||= root_path << name
       end
 
       def output_file_option(name)
@@ -29,6 +29,8 @@ module MediaConverter
       end
 
       def download(url, name, format = :mp3)
+        return if File.exists?("#{file_path(name)}.mp3")
+
         system("youtube-dl #{format_option(format)} #{output_file_option(name)} '#{url}'")
       end
     end

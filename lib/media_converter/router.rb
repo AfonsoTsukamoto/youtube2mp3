@@ -3,7 +3,6 @@ require 'rack'
 require 'sinatra/json'
 require 'sinatra/base'
 require 'sinatra/reloader'
-require 'sinatra/activerecord'
 
 require 'active_support'
 require 'active_support/core_ext/array'
@@ -14,7 +13,6 @@ require 'sidekiq'
 module MediaConverter
   class Router < Sinatra::Base
     register Sinatra::Reloader
-    register Sinatra::ActiveRecordExtension
     register Sinatra::JSON
 
     set :database_file, '../../config/database.yml'
@@ -32,17 +30,19 @@ module MediaConverter
     end
 
     post '/video/:youtube_id/process' do
-      media = MediaContent.create!(youtube_id: params[:youtube_id])
-      json id: media.id
+      media = MediaContent.new(youtube_id: params[:youtube_id])
+      media.launch_downloader
+
+      json id: params[:youtube_id]
     end
 
-    get '/video/:id/audio' do
-      media = MediaContent.find_by(id: params[:id])
+    get '/video/:youtube_id/audio' do
+      media = MediaContent.new(youtube_id: params[:youtube_id])
 
-      if media &&  media.processed
+      if File.exists?(media.file_path)
         json url: "#{base_url}/#{media.download_path}"
       else
-        json error: 'No no no no'
+        json error: 'nononono'
       end
     end
   end
