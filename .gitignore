@@ -7,6 +7,7 @@
 # Other ignores
 .env
 config/database.yml
+public/downloads
 
 # Ignore bundler config.
 /.bundle
@@ -17,4 +18,3 @@ config/database.yml
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
-/tmp
