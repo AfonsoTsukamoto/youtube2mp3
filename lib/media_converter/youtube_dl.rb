@@ -8,7 +8,7 @@ module MediaConverter
   class YoutubeDl
     class YoutubeDlWrongFormat < StandardError; end
 
-    FORMATS = %i(mp3 m4a opus best aac vorbis wav).freeze
+    FORMATS = %w(mp3 m4a opus best aac vorbis wav).freeze
 
     class << self
       def root_path
@@ -28,7 +28,7 @@ module MediaConverter
         "-x --audio-format '#{format}'"
       end
 
-      def download(url, name, format = :mp3)
+      def download(url, name, format = 'mp3')
         return if File.exists?("#{file_path(name)}.mp3")
 
         system("youtube-dl #{format_option(format)} #{output_file_option(name)} '#{url}'")
