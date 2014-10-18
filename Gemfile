@@ -19,3 +19,6 @@ gem 'sidekiq'
 gem 'pry', '~> 0.9.12'
 # => gem 'pry-debugger', '~> 0.2.2'
 gem 'pry-byebug'
+
+# Run sinatra and sidekiq at the same time
+gem 'foreman'
