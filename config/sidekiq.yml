@@ -1,0 +1,6 @@
+:pidfile: tmp/pids/sidekiq.pid
+:timeout: 1500
+:concurrency: 10
+:queues:
+  - [downloads, 1]
+:require: ./environment.rb
