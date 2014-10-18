@@ -12,11 +12,11 @@ module MediaConverter
 
     class << self
       def root_path
-        "public/downloads/"
+        'public/downloads/'
       end
 
       def file_path(name)
-        @file_path ||= root_path << name
+        @file_path = root_path << name
       end
 
       def output_file_option(name)
