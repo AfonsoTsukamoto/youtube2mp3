@@ -24,7 +24,7 @@ module MediaConverter
       end
 
       def format_option(format)
-        raise YoutubeDlWrongFormat, "#{format} not supported" unless FORMATS.include?(format)
+        raise YoutubeDlWrongFormat, "#{format} not supported" unless FORMATS.include?(format.to_s)
         "-x --audio-format '#{format}'"
       end
 
