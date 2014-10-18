@@ -15,7 +15,6 @@ module MediaConverter
     register Sinatra::Reloader
     register Sinatra::JSON
 
-    set :database_file, '../../config/database.yml'
     set :public_folder, File.join(root, '..', '..', 'public/')
 
     configure do
