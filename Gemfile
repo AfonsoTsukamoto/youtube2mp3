@@ -4,9 +4,6 @@ source 'https://rubygems.org'
 gem 'sinatra', '~> 1.4.5'
 gem 'sinatra-reloader'
 
-# Save data
-gem 'sinatra-activerecord'
-gem 'sqlite3'
 gem 'rake'
 
 # We are using some ActiveSupport extensions that are very handy (String and Array extensions)
