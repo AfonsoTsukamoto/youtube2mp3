@@ -10,7 +10,7 @@ gem 'rake'
 gem 'activesupport', '~> 4.1.1'
 
 # make them work!
-gem 'sidekiq'
+gem 'sidekiq', '~> 3.1.0'
 
 # I <3 pry!
 # gem 'pry', '~> 0.9.12'
