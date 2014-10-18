@@ -25,7 +25,7 @@ module MediaConverter
 
       def format_option(format)
         raise YoutubeDlWrongFormat, "#{format} not supported" unless FORMATS.include?(format.to_s)
-        "-x --audio-format '#{format}'"
+        "--extract-audio --audio-format '#{format}'"
       end
 
       def download(url, name, format = 'mp3')
