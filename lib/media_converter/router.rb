@@ -6,7 +6,7 @@ require 'sinatra/reloader'
 
 require 'active_support'
 require 'active_support/core_ext/array'
-require 'pry'
+#require 'pry'
 require 'redis'
 require 'sidekiq'
 
